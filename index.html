@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carnet de Mots — Learn French Vocabulary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Carnet de mots</p>
+    <h1>Learn French vocabulary</h1>
+    <p class="sub">Pick a category, flip each card, then mark whether you knew it. Your marks are saved on this device.</p>
+  </header>
+
+  <div class="deck-picker">
+    <select id="categorySelect" aria-label="Choose a category"></select>
+    <span class="deck-count" id="deckCount"></span>
+  </div>
+
+  <div class="tally" id="tally"></div>
+
+  <div id="deckView">
+    <div class="stage">
+      <div class="card" id="card">
+        <div class="face front">
+          <p class="word" id="wordFr"></p>
+          <span class="flip-hint">tap the card to flip</span>
+        </div>
+        <div class="face back">
+          <p class="translation" id="wordEn"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="action review" id="btnReview">Don't know yet</button>
+      <button class="action known" id="btnKnown">Know it</button>
+    </div>
+
+    <div class="toolbar">
+      <span id="posLabel"></span>
+      <button id="btnShuffle">Shuffle deck</button>
+    </div>
+  </div>
+
+  <div id="summaryView" class="summary" style="display:none;">
+    <h2>Deck complete</h2>
+    <p id="summarySub"></p>
+    <div class="stat-row">
+      <div class="stat"><span class="n" id="statKnown">0</span><span class="l">know it</span></div>
+      <div class="stat"><span class="n" id="statReview">0</span><span class="l">to review</span></div>
+    </div>
+    <div class="summary-actions">
+      <button class="action review" id="btnReviewMissed">Review missed words</button>
+      <button class="action known" id="btnRestart">Start over</button>
+    </div>
+  </div>
+</div>
+
+<script src="words.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
