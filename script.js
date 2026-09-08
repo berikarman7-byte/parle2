@@ -170,4 +170,4 @@ document.getElementById("btnReviewMissed").addEventListener("click", () => {
 });
 
 buildCategoryPicker();
-selectCategory(currentCategory);
+selectCategory(currentCategory
