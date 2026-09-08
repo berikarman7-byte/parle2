@@ -6,30 +6,49 @@
 <title>Carnet de Mots — Learn French Vocabulary</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
+  <span class="theme-icon-light">☀</span><span class="theme-icon-dark">☾</span>
+</button>
+
 <div class="wrap">
-  <header>
-    <p class="eyebrow">Carnet de mots</p>
-    <h1>Learn French vocabulary</h1>
-    <p class="sub">Pick a category, flip each card, then mark whether you knew it. Your marks are saved on this device.</p>
-  </header>
 
-  <div class="deck-picker">
-    <select id="categorySelect" aria-label="Choose a category"></select>
-  </div>
+  <!-- HOME: category picker + overall stats -->
+  <div id="homeView">
+    <header>
+      <p class="eyebrow">Carnet de mots</p>
+      <h1>Learn French vocabulary</h1>
+      <p class="sub">Pick a category to start. Flip each card, mark what you know, and your progress is saved right here on this device.</p>
+    </header>
 
-  <div class="progress">
-    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-    <div class="progress-meta">
-      <span id="posLabel"></span>
-      <span class="progress-stats"><span class="stat-known" id="statKnownInline">0</span> known · <span class="stat-review" id="statReviewInline">0</span> to review</span>
+    <div class="global-stats">
+      <div class="gstat"><span class="n" id="totalKnown">0</span><span class="l">words known</span></div>
+      <div class="gstat"><span class="n" id="totalWords">0</span><span class="l">total words</span></div>
+      <div class="gstat"><span class="n" id="streakDays">0</span><span class="l">day streak</span></div>
     </div>
+
+    <div class="category-grid" id="categoryGrid"></div>
   </div>
 
-  <div id="deckView">
+  <!-- DECK: the flashcards themselves -->
+  <div id="deckView" style="display:none;">
+    <div class="deck-header">
+      <button id="btnBack" class="back-btn">&larr; All categories</button>
+      <span class="deck-title" id="deckTitle"></span>
+    </div>
+
+    <div class="progress">
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-meta">
+        <span id="posLabel"></span>
+        <span class="progress-stats"><span class="stat-known" id="statKnownInline">0</span> known · <span class="stat-review" id="statReviewInline">0</span> to review</span>
+      </div>
+    </div>
+
     <div class="stage">
       <div class="card" id="card">
         <div class="face front">
@@ -52,6 +71,7 @@
     </div>
   </div>
 
+  <!-- SUMMARY: end of deck -->
   <div id="summaryView" class="summary" style="display:none;">
     <h2>Deck complete</h2>
     <p id="summarySub"></p>
@@ -63,10 +83,13 @@
       <button class="action review" id="btnReviewMissed">Review missed words</button>
       <button class="action known" id="btnRestart">Start over</button>
     </div>
+    <button id="btnHome" class="back-btn summary-home">&larr; All categories</button>
   </div>
+
 </div>
 
 <script src="words.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
+
