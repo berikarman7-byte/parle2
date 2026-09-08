@@ -262,4 +262,3 @@ button.action.known:hover{ background:rgba(79,121,66,0.07); }
   body{ padding-left:26px; }
   body::before{ left:20px; }
   .stage{ max-width:100%; }
-}
