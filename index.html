@@ -6,7 +6,7 @@
 <title>Carnet de Mots — Learn French Vocabulary</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,10 +19,15 @@
 
   <div class="deck-picker">
     <select id="categorySelect" aria-label="Choose a category"></select>
-    <span class="deck-count" id="deckCount"></span>
   </div>
 
-  <div class="tally" id="tally"></div>
+  <div class="progress">
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-meta">
+      <span id="posLabel"></span>
+      <span class="progress-stats"><span class="stat-known" id="statKnownInline">0</span> known · <span class="stat-review" id="statReviewInline">0</span> to review</span>
+    </div>
+  </div>
 
   <div id="deckView">
     <div class="stage">
@@ -43,7 +48,6 @@
     </div>
 
     <div class="toolbar">
-      <span id="posLabel"></span>
       <button id="btnShuffle">Shuffle deck</button>
     </div>
   </div>
